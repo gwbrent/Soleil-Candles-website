@@ -44,50 +44,46 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+<body class="bg-gradient-to-br from-red-50 via-green-50 to-yellow-50">
     
     <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
+    <header class="bg-white shadow-md sticky top-0 z-40 border-b-4 border-red-600">
         <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path>
-                </svg>
-                <h1 class="text-2xl font-bold text-gray-800">Soleil Candles</h1>
+                <img src="https://i.imgur.com/nzFnmAv.jpeg" alt="Soleil Candles Logo" class="h-12 object-contain">
             </div>
-            <button onclick="openCart()" class="relative bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-all shadow-lg">
+            <button onclick="openCart()" class="relative bg-red-600 text-white p-3 rounded-full hover:bg-red-700 transition-all shadow-lg">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                 </svg>
-                <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">0</span>
+                <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-green-600 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">0</span>
             </button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <div class="bg-gradient-to-r from-orange-400 to-amber-400 text-white py-16 px-4">
+    <div class="bg-gradient-to-r from-red-600 via-green-600 to-red-600 text-white py-16 px-4">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Handcrafted Candles</h2>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">🎄 Holiday Collection 🎄</h2>
             <p class="text-xl opacity-90">A little sunshine in every flame</p>
         </div>
     </div>
 
     <!-- Special Deals Section -->
-    <section class="bg-gradient-to-r from-red-500 to-pink-500 py-12">
+    <section class="bg-gradient-to-r from-green-700 to-red-700 py-12">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex items-center justify-between mb-6">
                 <div>
-                    <h3 class="text-3xl font-bold text-white mb-2">🔥 Special Deals</h3>
-                    <p class="text-white opacity-90">Limited time offers - Don't miss out!</p>
+                    <h3 class="text-3xl font-bold text-white mb-2">🎁 Holiday Deals</h3>
+                    <p class="text-white opacity-90">Limited time festive offers!</p>
                 </div>
                 <div class="flex gap-2">
-                    <button onclick="scrollDeals('left')" class="bg-white text-red-500 p-2 rounded-full hover:bg-gray-100 transition-all shadow-lg">
+                    <button onclick="scrollDeals('left')" class="bg-white text-red-600 p-2 rounded-full hover:bg-gray-100 transition-all shadow-lg">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                         </svg>
                     </button>
-                    <button onclick="scrollDeals('right')" class="bg-white text-red-500 p-2 rounded-full hover:bg-gray-100 transition-all shadow-lg">
+                    <button onclick="scrollDeals('right')" class="bg-white text-red-600 p-2 rounded-full hover:bg-gray-100 transition-all shadow-lg">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
@@ -112,7 +108,7 @@
     <!-- Cart Sidebar -->
     <div id="cart-modal" class="modal">
         <div style="margin-left: auto;" class="bg-white w-full max-w-md h-full overflow-y-auto shadow-2xl">
-            <div class="sticky top-0 bg-orange-500 text-white p-4 flex items-center justify-between">
+            <div class="sticky top-0 bg-red-600 text-white p-4 flex items-center justify-between">
                 <h3 class="text-xl font-bold">Your Cart (<span id="cart-total-items">0</span>)</h3>
                 <button onclick="closeCart()" class="text-white hover:text-gray-200">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,9 +131,9 @@
             <div id="cart-footer" class="hidden sticky bottom-0 bg-white border-t p-4 space-y-4">
                 <div class="flex justify-between items-center text-lg font-bold">
                     <span>Total:</span>
-                    <span class="text-orange-500 text-2xl">$<span id="cart-total">0.00</span></span>
+                    <span class="text-red-600 text-2xl">$<span id="cart-total">0.00</span></span>
                 </div>
-                <button onclick="openCheckout()" class="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all shadow-lg">
+                <button onclick="openCheckout()" class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-all shadow-lg">
                     Proceed to Checkout
                 </button>
             </div>
@@ -147,7 +143,7 @@
     <!-- Checkout Modal -->
     <div id="checkout-modal" class="modal items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-2xl w-full my-8 shadow-2xl max-h-screen overflow-y-auto">
-            <div class="bg-orange-500 text-white p-6 rounded-t-2xl flex items-center justify-between">
+            <div class="bg-red-600 text-white p-6 rounded-t-2xl flex items-center justify-between">
                 <h3 class="text-2xl font-bold">Checkout</h3>
                 <button onclick="closeCheckout()" class="text-white hover:text-gray-200">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,35 +155,35 @@
             <div class="p-6 space-y-4">
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
-                    <input type="text" id="checkout-name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                    <input type="text" id="checkout-name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-red-600 focus:border-transparent">
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
-                    <input type="email" id="checkout-email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                    <input type="email" id="checkout-email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-red-600 focus:border-transparent">
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Phone *</label>
-                    <input type="tel" id="checkout-phone" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                    <input type="tel" id="checkout-phone" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-red-600 focus:border-transparent">
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Delivery Address *</label>
-                    <textarea id="checkout-address" required rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent"></textarea>
+                    <textarea id="checkout-address" required rows="3" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-red-600 focus:border-transparent"></textarea>
                 </div>
 
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Order Notes (Optional)</label>
-                    <textarea id="checkout-notes" rows="2" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 focus:border-transparent" placeholder="Any special requests or delivery instructions..."></textarea>
+                    <textarea id="checkout-notes" rows="2" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-red-600 focus:border-transparent" placeholder="Any special requests or delivery instructions..."></textarea>
                 </div>
 
-                <div id="order-summary" class="bg-amber-50 rounded-lg p-4 space-y-2">
+                <div id="order-summary" class="bg-yellow-50 rounded-lg p-4 space-y-2 border-2 border-green-600">
                     <h4 class="font-semibold text-gray-800">Order Summary</h4>
                     <div id="checkout-items"></div>
                     <div class="border-t pt-2 flex justify-between font-bold text-lg">
                         <span>Total:</span>
-                        <span class="text-orange-500">$<span id="checkout-total">0.00</span></span>
+                        <span class="text-red-600">$<span id="checkout-total">0.00</span></span>
                     </div>
                 </div>
 
@@ -195,7 +191,7 @@
                     After submitting your order, we'll contact you via email to confirm details and arrange payment & delivery.
                 </p>
 
-                <button onclick="submitOrder()" class="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all shadow-lg text-lg">
+                <button onclick="submitOrder()" class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-all shadow-lg text-lg">
                     Submit Order
                 </button>
             </div>
@@ -203,10 +199,10 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-16">
+    <footer class="bg-green-800 text-white py-8 mt-16">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="mb-2">© 2024 Soleil Candles. Handcrafted in Barbados.</p>
-            <p class="text-gray-400 text-sm">Contact us: info@soleilcandles.com | (246) 555-0123</p>
+            <p class="text-green-200 text-sm">Contact us: info@soleilcandles.com | (246) 555-0123</p>
         </div>
     </footer>
 
@@ -266,7 +262,7 @@
                 id: 101,
                 name: 'Mini Holiday Box',
                 description: 'Buy 4 minis for $50',
-                image: 'https://images.unsplash.com/photo-1602874801006-95ad34191b57?w=400&h=400&fit=crop',
+                image: 'https://i.imgur.com/GWGYsQc.jpg',
                 discount: 'SPECIAL',
                 productId: 1,
                 originalPrice: 60,
@@ -276,7 +272,7 @@
                 id: 102,
                 name: 'Coffee Lovers Bundle',
                 description: 'Get Fresh Brewed Coffee + Vanilla Cream Latte for 20% off',
-                image: 'https://images.unsplash.com/photo-1602874801138-b7e284c9b063?w=400&h=400&fit=crop',
+                image: 'https://i.imgur.com/NiQ3jXf.jpg',
                 discount: '20% OFF',
                 productId: 4,
                 originalPrice: 30,
@@ -286,7 +282,7 @@
                 id: 103,
                 name: 'Holiday Special',
                 description: 'Fresh Baked Gingerbread + Sugar Cookie - Perfect for the season!',
-                image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&h=400&fit=crop',
+                image: 'https://i.imgur.com/CUOvGaM.jpg',
                 discount: '30% OFF',
                 productId: 3,
                 originalPrice: 30,
@@ -296,7 +292,7 @@
                 id: 104,
                 name: 'Triple the Glow, Save the Dough',
                 description: 'Buy 3 for $60 til Dec 31st',
-                image: 'https://images.unsplash.com/photo-1598520106830-8c45c2035460?w=400&h=400&fit=crop',
+                image: 'https://i.imgur.com/nL94yrw.jpg',
                 discount: 'LIMITED',
                 productId: 5,
                 originalPrice: 66,
@@ -310,10 +306,10 @@
         function renderDeals() {
             const container = document.getElementById('deals-container');
             container.innerHTML = deals.map(deal => `
-                <div class="deal-card bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all">
+                <div class="deal-card bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-all border-4 border-red-600">
                     <div class="relative">
                         <img src="${deal.image}" alt="${deal.name}" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                        <div class="absolute top-4 right-4 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
                             ${deal.discount}
                         </div>
                     </div>
@@ -323,11 +319,11 @@
                         <div class="flex items-center justify-between mb-4">
                             <div>
                                 <span class="text-gray-400 line-through text-sm">$${deal.originalPrice}</span>
-                                <span class="text-2xl font-bold text-red-500 ml-2">$${deal.salePrice}</span>
+                                <span class="text-2xl font-bold text-red-600 ml-2">$${deal.salePrice}</span>
                             </div>
                         </div>
-                        <button onclick="addDealToCart(${deal.id})" class="w-full bg-red-500 text-white py-3 rounded-full font-semibold hover:bg-red-600 transition-all shadow-lg">
-                            Grab This Deal!
+                        <button onclick="addDealToCart(${deal.id})" class="w-full bg-green-600 text-white py-3 rounded-full font-semibold hover:bg-green-700 transition-all shadow-lg">
+                            🎁 Grab This Deal!
                         </button>
                     </div>
                 </div>
@@ -371,19 +367,19 @@
         function renderProducts() {
             const grid = document.getElementById('products-grid');
             grid.innerHTML = products.map(product => `
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 border-2 border-green-600">
                     <div class="relative">
                         <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover">
-                        ${!product.inStock ? '<div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Out of Stock</div>' : ''}
+                        ${!product.inStock ? '<div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Out of Stock</div>' : ''}
                     </div>
                     <div class="p-6">
                         <h4 class="text-xl font-bold text-gray-800 mb-2">${product.name}</h4>
                         <p class="text-gray-600 mb-1">Scent: ${product.scent}</p>
                         <p class="text-gray-500 text-sm mb-4">Size: ${product.size}</p>
                         <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-orange-500">$${product.price}</span>
+                            <span class="text-2xl font-bold text-red-600">$${product.price}</span>
                             <button onclick="addToCart(${product.id})" ${!product.inStock ? 'disabled' : ''} 
-                                class="${product.inStock ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md hover:shadow-lg' : 'bg-gray-300 text-gray-500 cursor-not-allowed'} px-6 py-2 rounded-full font-semibold transition-all">
+                                class="${product.inStock ? 'bg-green-600 text-white hover:bg-green-700 shadow-md hover:shadow-lg' : 'bg-gray-300 text-gray-500 cursor-not-allowed'} px-6 py-2 rounded-full font-semibold transition-all">
                                 ${product.inStock ? 'Add to Cart' : 'Unavailable'}
                             </button>
                         </div>
@@ -426,7 +422,7 @@
                 document.getElementById('cart-footer').classList.remove('hidden');
                 
                 document.getElementById('cart-items').innerHTML = cart.map(item => `
-                    <div class="bg-gray-50 rounded-lg p-4 flex gap-4">
+                    <div class="bg-gray-50 rounded-lg p-4 flex gap-4 border-l-4 border-green-600">
                         <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-lg">
                         <div class="flex-1">
                             <h4 class="font-semibold text-gray-800">${item.name}</h4>
@@ -439,13 +435,13 @@
                                 <button onclick="updateQuantity(${item.id}, 1)" class="bg-gray-200 p-1 rounded hover:bg-gray-300">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                                 </button>
-                                <button onclick="removeFromCart(${item.id})" class="ml-auto text-red-500 hover:text-red-700">
+                                <button onclick="removeFromCart(${item.id})" class="ml-auto text-red-600 hover:text-red-800">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                                 </button>
                             </div>
                         </div>
                         <div class="text-right">
-                            <p class="font-bold text-orange-500">$${(item.price * item.quantity).toFixed(2)}</p>
+                            <p class="font-bold text-red-600">$${(item.price * item.quantity).toFixed(2)}</p>
                         </div>
                     </div>
                 `).join('');
