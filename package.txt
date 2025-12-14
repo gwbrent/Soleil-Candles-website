@@ -27,6 +27,21 @@
         .modal.active {
             display: flex;
         }
+        .deals-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            scrollbar-width: none;
+        }
+        .deals-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        .deal-card {
+            min-width: 300px;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
@@ -57,6 +72,34 @@
             <p class="text-xl opacity-90">A little sunshine in every flame</p>
         </div>
     </div>
+
+    <!-- Special Deals Section -->
+    <section class="bg-gradient-to-r from-red-500 to-pink-500 py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-2">🔥 Special Deals</h3>
+                    <p class="text-white opacity-90">Limited time offers - Don't miss out!</p>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="scrollDeals('left')" class="bg-white text-red-500 p-2 rounded-full hover:bg-gray-100 transition-all shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button onclick="scrollDeals('right')" class="bg-white text-red-500 p-2 rounded-full hover:bg-gray-100 transition-all shadow-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="deals-container" class="deals-scroll">
+                <!-- Deals will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
 
     <!-- Products Grid -->
     <main class="max-w-7xl mx-auto px-4 py-12">
@@ -177,7 +220,7 @@
                 scent: 'Sweet Cookie Dough',
                 size: '2 oz',
                 inStock: true,
-                image: 'https://imgur.com/GWGYsQc'
+                image: 'https://i.imgur.com/GWGYsQc.jpg'
             },
             {
                 id: 2,
@@ -186,7 +229,7 @@
                 scent: 'Creamy Vanilla Coffee',
                 size: '2 oz',
                 inStock: true,
-                image: 'https://imgur.com/VLjXm3c'
+                image: 'https://i.imgur.com/VLjXm3c.jpg'
             },
             {
                 id: 3,
@@ -195,7 +238,7 @@
                 scent: 'Warm Gingerbread Spice',
                 size: '2 oz',
                 inStock: true,
-                image: 'https://imgur.com/CUOvGaM'
+                image: 'https://i.imgur.com/CUOvGaM.jpg'
             },
             {
                 id: 4,
@@ -204,7 +247,7 @@
                 scent: 'Rich Roasted Coffee',
                 size: '2 oz',
                 inStock: true,
-                image: 'https://imgur.com/NiQ3jXf'
+                image: 'https://i.imgur.com/NiQ3jXf.jpg'
             },
             {
                 id: 5,
@@ -213,13 +256,57 @@
                 scent: 'Fresh Gardenia',
                 size: '3 oz',
                 inStock: true,
-                image: 'https://imgur.com/nL94yrw'
+                image: 'https://i.imgur.com/nL94yrw.jpg'
+            }
+        ];
+
+        // Deals data - You can easily customize these!
+        const deals = [
+            {
+                id: 101,
+                name: 'Mini Holiday Box',
+                description: 'Buy 4 minis for $50',
+                image: 'https://images.unsplash.com/photo-1602874801006-95ad34191b57?w=400&h=400&fit=crop',
+                discount: 'SPECIAL',
+                productId: 1,
+                originalPrice: 60,
+                salePrice: 50
+            },
+            {
+                id: 102,
+                name: 'Coffee Lovers Bundle',
+                description: 'Get Fresh Brewed Coffee + Vanilla Cream Latte for 20% off',
+                image: 'https://images.unsplash.com/photo-1602874801138-b7e284c9b063?w=400&h=400&fit=crop',
+                discount: '20% OFF',
+                productId: 4,
+                originalPrice: 30,
+                salePrice: 24
+            },
+            {
+                id: 103,
+                name: 'Holiday Special',
+                description: 'Fresh Baked Gingerbread + Sugar Cookie - Perfect for the season!',
+                image: 'https://images.unsplash.com/photo-1603006905003-be475563bc59?w=400&h=400&fit=crop',
+                discount: '30% OFF',
+                productId: 3,
+                originalPrice: 30,
+                salePrice: 21
+            },
+            {
+                id: 104,
+                name: 'Triple the Glow, Save the Dough',
+                description: 'Buy 3 for $60 til Dec 31st',
+                image: 'https://images.unsplash.com/photo-1598520106830-8c45c2035460?w=400&h=400&fit=crop',
+                discount: 'LIMITED',
+                productId: 5,
+                originalPrice: 66,
+                salePrice: 60
             }
         ];
 
         let cart = [];
 
-                // Render deals
+        // Render deals
         function renderDeals() {
             const container = document.getElementById('deals-container');
             container.innerHTML = deals.map(deal => `
@@ -438,6 +525,7 @@
         }
 
         // Initialize
+        renderDeals();
         renderProducts();
     </script>
 </body>
