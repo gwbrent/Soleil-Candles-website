@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Details | Soleil Candles</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-amber-50">
+
+<div class="max-w-6xl mx-auto px-4 py-10">
+    <a href="index.html" class="text-orange-500 font-semibold mb-6 inline-block">← Back to shop</a>
+
+    <div id="product-details" class="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white p-8 rounded-2xl shadow-lg"></div>
+</div>
+
+<script>
+const products = [
+    {
+        id: 1,
+        name: 'Sugar Cookie Crumble',
+        price: 15,
+        scent: 'Sweet Cookie Dough',
+        size: '2 oz',
+        description: 'A warm, nostalgic scent that smells like fresh sugar cookies straight from the oven.',
+        image: 'https://i.imgur.com/GWGYsQc.jpg'
+    },
+    {
+        id: 2,
+        name: 'Vanilla Cream Latte',
+        price: 15,
+        scent: 'Creamy Vanilla Coffee',
+        size: '2 oz',
+        description: 'Smooth vanilla blended with rich coffee notes for cozy mornings.',
+        image: 'https://i.imgur.com/VLjXm3c.jpg'
+    },
+    {
+        id: 3,
+        name: 'Fresh Baked Gingerbread',
+        price: 15,
+        scent: 'Warm Gingerbread Spice',
+        size: '2 oz',
+        description: 'Spiced gingerbread with hints of cinnamon and clove.',
+        image: 'https://i.imgur.com/CUOvGaM.jpg'
+    },
+    {
+        id: 4,
+        name: 'Fresh Brewed Coffee',
+        price: 15,
+        scent: 'Rich Roasted Coffee',
+        size: '2 oz',
+        description: 'Bold and energizing aroma of freshly brewed coffee.',
+        image: 'https://i.imgur.com/NiQ3jXf.jpg'
+    },
+    {
+        id: 5,
+        name: 'Gardenia Bloom',
+        price: 22,
+        scent: 'Fresh Gardenia',
+        size: '3 oz',
+        description: 'Elegant floral scent inspired by Caribbean gardenias.',
+        image: 'https://i.imgur.com/nL94yrw.jpg'
+    }
+];
+
+// Get product ID from URL
+const params = new URLSearchParams(window.location.search);
+const productId = parseInt(params.get('id'));
+
+const product = products.find(p => p.id === productId);
+const container = document.getElementById('product-details');
+
+if (!product) {
+    container.innerHTML = `<p class="text-red-500">Product not found.</p>`;
+} else {
+    container.innerHTML = `
+        <img src="${product.image}" class="w-full rounded-xl object-cover">
+
+        <div>
+            <h1 class="text-3xl font-bold mb-2">${product.name}</h1>
+            <p class="text-gray-600 mb-2">Scent: ${product.scent}</p>
+            <p class="text-gray-600 mb-4">Size: ${product.size}</p>
+
+            <p class="text-gray-700 mb-6">${product.description}</p>
+
+            <div class="flex items-center justify-between">
+                <span class="text-3xl font-bold text-orange-500">$${product.price}</span>
+                <button class="bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition">
+                    Add to Cart
+                </button>
+            </div>
+        </div>
+    `;
+}
+</script>
+</body>
+</html>
