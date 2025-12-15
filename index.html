@@ -366,29 +366,63 @@
 
         // Render products
         function renderProducts() {
-            const grid = document.getElementById('products-grid');
-            grid.innerHTML = products.map(product => `
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1">
-                    <div class="relative">
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover">
-                        ${!product.inStock ? '<div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Out of Stock</div>' : ''}
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-800 mb-2">${product.name}</h4>
-                        <p class="text-gray-600 mb-1">Scent: ${product.scent}</p>
-                        <p class="text-gray-500 text-sm mb-4">Size: ${product.size}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-orange-500">$${product.price}</span>
-                            <button onclick="addToCart(${product.id})" ${!product.inStock ? 'disabled' : ''} 
-                                class="${product.inStock ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md hover:shadow-lg' : 'bg-gray-300 text-gray-500 cursor-not-allowed'} px-6 py-2 rounded-full font-semibold transition-all">
-                                ${product.inStock ? 'Add to Cart' : 'Unavailable'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
+    const grid = document.getElementById('products-grid');
 
+    grid.innerHTML = products.map(product => `
+        <div 
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer"
+            onclick="openProduct(${product.id})"
+        >
+            <div class="relative">
+                <img 
+                    src="${product.image}" 
+                    alt="${product.name}" 
+                    class="w-full h-64 object-cover"
+                >
+                ${!product.inStock ? `
+                    <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        Out of Stock
+                    </div>
+                ` : ''}
+            </div>
+
+            <div class="p-6">
+                <h4 class="text-xl font-bold text-gray-800 mb-2">
+                    ${product.name}
+                </h4>
+
+                <p class="text-gray-600 mb-1">
+                    Scent: ${product.scent}
+                </p>
+
+                <p class="text-gray-500 text-sm mb-4">
+                    Size: ${product.size}
+                </p>
+
+                <div class="flex items-center justify-between">
+                    <span class="text-2xl font-bold text-orange-500">
+                        $${product.price}
+                    </span>
+
+                    <button
+                        onclick="event.stopPropagation(); addToCart(${product.id});"
+                        ${!product.inStock ? 'disabled' : ''}
+                        class="${
+                            product.inStock
+                                ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md hover:shadow-lg'
+                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        } px-6 py-2 rounded-full font-semibold transition-all"
+                    >
+                        ${product.inStock ? 'Add to Cart' : 'Unavailable'}
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+        function openProduct(productId) {
+    window.location.href = `product.html?id=${productId}`;
+}
         // Add to cart
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
