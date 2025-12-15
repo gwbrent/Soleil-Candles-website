@@ -71,7 +71,7 @@
     </div>
 
     <!-- Special Deals Section -->
-    <section class="bg-gradient-to-r from-red-500 to-pink-500 py-12">
+   <div class="text-gray-800 py-16 px-4" style="background-color:#FFEA92;">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex items-center justify-between mb-6">
                 <div>
