@@ -46,32 +46,37 @@
 </head>
 <body class="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
     
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="https://i.imgur.com/nzFnmAv.jpeg" alt="Soleil Candles Logo" class="w-10 h-10 object-contain">
-                <h1 class="text-2xl font-bold text-gray-800">Soleil Candles</h1>
-            </div>
-            <button onclick="openCart()" class="relative bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-all shadow-lg">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-                <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">0</span>
-            </button>
+   <header class="bg-white shadow-md sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <img 
+                src="https://i.imgur.com/nzFnmAv.jpeg" 
+                alt="Soleil Candles Logo" 
+                class="h-10 w-auto object-contain"
+            >
+            <h1 class="text-2xl font-bold text-gray-800">
+                Soleil Candles
+            </h1>
         </div>
-    </header>
 
+        <button onclick="openCart()" class="relative bg-orange-500 text-white p-3 rounded-full hover:bg-orange-600 transition-all shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 0 014 0z"></path>
+            </svg>
+            <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-red-500 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">0</span>
+        </button>
+    </div>
+</header>
     <!-- Hero Section -->
-    <div class="bg-gradient-to-r from-orange-400 to-amber-400 text-white py-16 px-4">
-        <div class="max-w-4xl mx-auto text-center">
+<div class="text-gray-800 py-16 px-4" style="background-color:#FFEA92;">                                        
+    <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-bold mb-4">Handcrafted Candles</h2>
             <p class="text-xl opacity-90">A little sunshine in every flame</p>
         </div>
     </div>
 
     <!-- Special Deals Section -->
-   <div class="text-gray-800 py-16 px-4" style="background-color:#FFEA92;">
+    <section class="bg-gradient-to-r from-red-500 to-pink-500 py-12">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex items-center justify-between mb-6">
                 <div>
@@ -203,7 +208,7 @@
     <footer class="bg-gray-800 text-white py-8 mt-16">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="mb-2">© 2024 Soleil Candles. Handcrafted in Barbados.</p>
-            <p class="text-gray-400 text-sm">Contact us: info@soleilcandles.com | (246) 555-0123</p>
+            <p class="text-gray-400 text-sm">Contact us: soleilcandles.bb@gmail.com | (246) 847-7460 / (246) 287-3803 </p>
         </div>
     </footer>
 
@@ -263,7 +268,7 @@
                 id: 101,
                 name: 'Mini Holiday Box',
                 description: 'Buy 4 minis for $50',
-                image: 'https://images.unsplash.com/photo-1602874801006-95ad34191b57?w=400&h=400&fit=crop',
+                image: 'https://i.imgur.com/N3dqrIP.jpeg',
                 discount: 'SPECIAL',
                 productId: 1,
                 originalPrice: 60,
@@ -304,7 +309,7 @@
         let cart = [];
 
         // Render deals
-       function renderDeals() {
+        function renderDeals() {
     const container = document.getElementById('deals-container');
 
     container.innerHTML = deals.map(deal => `
@@ -342,10 +347,6 @@
         </div>
     `).join('');
 }
-function openProduct(productId) {
-    window.location.href = `product.html?id=${productId}`;
-}
-
         // Scroll deals carousel
         function scrollDeals(direction) {
             const container = document.getElementById('deals-container');
@@ -381,29 +382,63 @@ function openProduct(productId) {
 
         // Render products
         function renderProducts() {
-            const grid = document.getElementById('products-grid');
-            grid.innerHTML = products.map(product => `
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1">
-                    <div class="relative">
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover">
-                        ${!product.inStock ? '<div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">Out of Stock</div>' : ''}
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-gray-800 mb-2">${product.name}</h4>
-                        <p class="text-gray-600 mb-1">Scent: ${product.scent}</p>
-                        <p class="text-gray-500 text-sm mb-4">Size: ${product.size}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-orange-500">$${product.price}</span>
-                            <button onclick="addToCart(${product.id})" ${!product.inStock ? 'disabled' : ''} 
-                                class="${product.inStock ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md hover:shadow-lg' : 'bg-gray-300 text-gray-500 cursor-not-allowed'} px-6 py-2 rounded-full font-semibold transition-all">
-                                ${product.inStock ? 'Add to Cart' : 'Unavailable'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
+    const grid = document.getElementById('products-grid');
 
+    grid.innerHTML = products.map(product => `
+        <div 
+            class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:-translate-y-1 cursor-pointer"
+            onclick="openProduct(${product.id})"
+        >
+            <div class="relative">
+                <img 
+                    src="${product.image}" 
+                    alt="${product.name}" 
+                    class="w-full h-64 object-cover"
+                >
+                ${!product.inStock ? `
+                    <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                        Out of Stock
+                    </div>
+                ` : ''}
+            </div>
+
+            <div class="p-6">
+                <h4 class="text-xl font-bold text-gray-800 mb-2">
+                    ${product.name}
+                </h4>
+
+                <p class="text-gray-600 mb-1">
+                    Scent: ${product.scent}
+                </p>
+
+                <p class="text-gray-500 text-sm mb-4">
+                    Size: ${product.size}
+                </p>
+
+                <div class="flex items-center justify-between">
+                    <span class="text-2xl font-bold text-orange-500">
+                        $${product.price}
+                    </span>
+
+                    <button
+                        onclick="event.stopPropagation(); addToCart(${product.id});"
+                        ${!product.inStock ? 'disabled' : ''}
+                        class="${
+                            product.inStock
+                                ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md hover:shadow-lg'
+                                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                        } px-6 py-2 rounded-full font-semibold transition-all"
+                    >
+                        ${product.inStock ? 'Add to Cart' : 'Unavailable'}
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+        function openProduct(productId) {
+    window.location.href = `product.html?id=${productId}`;
+}
         // Add to cart
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
